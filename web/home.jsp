@@ -1,9 +1,3 @@
-<%-- 
-    Document   : home
-    Created on : 29 Dec 2024, 22.15.55
-    Author     : Administrator
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
