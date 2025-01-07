@@ -215,6 +215,7 @@ public class AdminController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             consultantModel.setId(id);
             consultantModel.delete();
+            next = "admin?menu=pView";
             
         } else if ("addA".equals(action)) {
             String picture_path = request.getParameter("picture_path");
