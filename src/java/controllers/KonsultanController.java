@@ -39,10 +39,10 @@ public class KonsultanController extends HttpServlet {
         Konsultan consultantModel = new Konsultan();
 
         if ("view".equals(menu)) {
-            ArrayList<Konsultan> consultants = consultantModel.get();
+            ArrayList<Konsultan> consultants = consultantModel.showAll();
             
             request.setAttribute("consultants", consultants);
-            request.getRequestDispatcher("/consultant/view.jsp").forward(request, response);
+            request.getRequestDispatcher("/consult.jsp").forward(request, response);
             
         } else if ("detail".equals(menu)) {
             String id = request.getParameter("id");
@@ -50,18 +50,20 @@ public class KonsultanController extends HttpServlet {
             
             if (consultant != null) {
                 request.setAttribute("consultant", consultant);
-                request.getRequestDispatcher("/consultant/detail.jsp").forward(request, response);
+                request.getRequestDispatcher("/consultantdetail.jsp").forward(request, response);
                 
             } else {
                 response.sendRedirect("consultant?menu=view");
             }
 
-            } else if ("search".equals(menu)) {
-                String name = request.getParameter("search");
-                Konsultan consultant = consultantModel.find("name", name);
+        } else if ("search".equals(menu)) {
+            String name = request.getParameter("search");
+            consultantModel.where("name LIKE '%" + name + "%'");
+            ArrayList<Konsultan> consultants =  consultantModel.get();
 
-                request.setAttribute("consultant", consultant);
-                request.getRequestDispatcher("/consultant/view.jsp").forward(request, response);
+            
+            request.setAttribute("consultants", consultants);
+            request.getRequestDispatcher("/consult.jsp").forward(request, response);
 
         } else {
             response.sendRedirect("consultant?menu=view");
