@@ -1,0 +1,191 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 31 Dec 2024, 01.38.42
+    Author     : ASUS
+*/
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../img/background1.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 40px;
+}
+
+.content {
+    align-items: center;
+    color: white;
+    text-decoration: solid;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    width: 70%;
+}
+
+.slogan {
+    font-size: 350%;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.start {
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    justify-content: end;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
+    text-decoration: solid;
+    text-align: center;
+    border: 3px solid #5e5e5e;
+    box-shadow: 0 0rem 1rem 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 150px;
+    padding: 8px;
+    margin-top: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.reg {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 30rem;
+    padding: 30px;
+    margin: auto;
+}
+
+.reg label {
+    margin-bottom: 3px;
+}
+
+.col-12 input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #444444;
+    border-radius: 8px;
+}
+
+.reg form div {
+    padding: 5px;
+}
+
+.check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 20px 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.check input {
+    margin-top: 3px;
+}
+
+.in {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 30rem;
+    margin: auto;
+    padding: 50px;
+}
+
+.in label {
+    margin-bottom: 3px;
+}
+
+.in form div {
+    padding: 5px;
+}
+
+.remember {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 20px 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.remember input {
+    margin-top: 3px;
+}
+
+.remember a {
+    margin-left: auto;
+}
+
+a {
+    color: #3e3d87;
+    text-decoration: none;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #699e95;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.submit-btn:hover {
+    background-color: #5f9188;
+}
+
+.reg-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    color: #699e95;
+    border: 2px solid #699e95;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.reg-btn:hover {
+    background-color: rgb(238, 236, 236);
+}
+
+@media (min-width: 400px) and (max-width: 599px) {
+    .content {
+        display: none;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 600px) and (max-width: 799px) {
+    .content {
+        display: none;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 800px) and (max-width: 1279px) {
+    .content-consult {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .content-consult {
+        width: 80%;
+    }
+}

@@ -1,0 +1,325 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 31 Dec 2024, 00.50.50
+    Author     : ASUS
+*/
+.content-detailofconsultant {
+    padding: 35px 5%;
+    width: 80%;
+    min-height: 91vh;
+    margin:auto;
+    background-color: #fff;
+    overflow-x: hidden; /* Mencegah konten keluar secara horizontal */
+    box-sizing: border-box;
+}
+
+.detail-of-consultant-profile {
+    width: 280px;
+    height: 280px;
+    background-color: blue;
+    border-radius: 280px;
+    margin-left: 40px;
+}
+
+.reservation {
+    display: grid;
+    grid-template-columns: 40% auto;
+    margin-top: 30px;
+}
+
+.schedule h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.based-in {
+    grid-area: based-in;
+}
+.case-solved {
+    grid-area: case-solved;
+}
+.graduated {
+    grid-area: graduated;
+}
+.price {
+    font-size: 27px;
+    font-weight: 500;
+    color: red;
+    margin-left: 3%;
+}
+.date {
+    margin-top: 15px;
+}
+
+.detailsofpersonal {
+    display: grid;
+    grid-template-columns: 25% 25% 50%;
+    grid-template-areas: "based-in case-solved graduated";
+    margin-top: 5px;
+    column-gap: 3px;
+}
+
+.detailsofpersonal .price p {
+    font-size: 20px;
+}
+
+.other-consultant {
+    margin-top: 50px;
+    /* font-size: 25px; */
+}
+
+.consultant-items {
+}
+
+.same-based-consultant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18%, 23.2%));
+    grid-template-rows: 350px;
+    grid-auto-flow: dense;
+    gap: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.same-based-consultant-grid .sbc-size {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: 0.4s;
+    padding-top: 30px;
+}
+
+.same-based-consultant-grid .sbc-details {
+    margin-top: 10px;
+    max-width: 180px;
+    margin: auto;
+}
+
+.same-based-consultant-grid .sbc-img {
+    width: 96px;
+    height: 96px;
+}
+
+.same-based-consultant-grid .sbc-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.same-based-consultant-grid .sbc-detail {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.same-based-consultant-grid .sbc-size:has(button:hover) {
+    transform: translateY(-5px);
+    background-color: rgb(181, 223, 190);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.same-based-consultant-grid button {
+    width: 120px;
+    padding: 1px;
+    border-radius: 6px;
+    margin-top: 25px;
+    padding: 7px;
+}
+
+/* Responsif */
+
+@media (min-width: 400px) and (max-width: 599px) {
+    .content-detailofconsultant {
+        width: 100%;
+    }
+    .detail-of-consultant-profile {
+        width: 120px;
+        height: 120px;
+        background-color: blue;
+        border-radius: 100%;
+        margin-left: 10px;
+    }
+    .schedule h1 {
+        font-size: 1.5rem;
+    }
+    .detailsofpersonal p {
+        font-size: 12px;
+    }
+
+    /* Same Based Consultant */
+    .same-based-consultant-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30%, 31%));
+        grid-template-rows: repeat(auto-fit, minmax(240px, 250px));
+        /* grid-template-columns: 33% 33% 33%;
+        grid-template-rows: 250px 250px; */
+        gap: 10px;
+        padding-top: 5px;
+    }
+
+    .same-based-consultant-grid .sbc-size {
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+            0 2px 4px -2px rgb(0 0 0 / 0.1);
+        transition: 0.4s;
+        padding: 30px 6px 0 6px;
+    }
+
+    .same-based-consultant-grid .sbc-details {
+        margin-top: 15px;
+    }
+
+    .same-based-consultant-grid .sbc-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .same-based-consultant-grid .sbc-title {
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .same-based-consultant-grid .sbc-detail {
+        font-size: 9px;
+        margin-top: 4px;
+    }
+
+    .same-based-consultant-grid button {
+        width: 100px;
+        padding: 5px;
+        font-size: 10px;
+        margin-top: 10px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 600px) and (max-width: 899px) {
+    .content-detailofconsultant {
+        width: 90%;
+    }
+    .detail-of-consultant-profile {
+        width: 160px;
+        height: 160px;
+        background-color: blue;
+        border-radius: 100%;
+        margin-left: 16px;
+    }
+    .schedule h1 {
+        font-size: 1.6rem;
+    }
+    .detailsofpersonal p {
+        font-size: 13px;
+    }
+
+    /* Same Based Consultant */
+    .same-based-consultant-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30%, 32%));
+        grid-template-rows: repeat(auto-fit, minmax(240px, 300px));
+        /* grid-template-columns: 33% 33% 33%;
+        grid-template-rows: 300px 300px; */
+        gap: 10px;
+    }
+
+    .same-based-consultant-grid .sbc-size {
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+            0 2px 4px -2px rgb(0 0 0 / 0.1);
+        transition: 0.4s;
+        padding: 30px 8px 0 8px;
+    }
+
+    .same-based-consultant-grid .sbc-details {
+        margin-top: 15px;
+    }
+
+    .same-based-consultant-grid .sbc-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .same-based-consultant-grid .sbc-title {
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .same-based-consultant-grid .sbc-detail {
+        font-size: 11px;
+        padding: 0 5px;
+        margin-top: 4px;
+    }
+
+    .same-based-consultant-grid button {
+        width: 100px;
+        padding: 5px;
+        font-size: 12px;
+        margin-top: 14px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 900px) and (max-width: 1279px) {
+    .content-detailofconsultant {
+        width: 85%;
+    }
+    .detail-of-consultant-profile {
+        width: 220px;
+        height: 220px;
+        background-color: blue;
+        border-radius: 280px;
+        margin-left: 11px;
+    }
+    .schedule h1 {
+        font-size: 1.7rem;
+    }
+
+    /* Same Based Consultant */
+    .same-based-consultant-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10%, 23.8%));
+        grid-template-rows: repeat(auto-fit, minmax(340px, 350px));
+        /* grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 350px 350px; */
+        gap: 10px;
+    }
+
+    .same-based-consultant-grid .sbc-size {
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+            0 2px 4px -2px rgb(0 0 0 / 0.1);
+        transition: 0.4s;
+        padding: 30px 10px 0 10px;
+    }
+
+    .same-based-consultant-grid .sbc-details {
+        margin-top: 10px;
+    }
+
+    .same-based-consultant-grid .sbc-img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .same-based-consultant-grid .sbc-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 5px;
+    }
+
+    .same-based-consultant-grid .sbc-detail {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .same-based-consultant-grid .sbc-size:has(button:hover) {
+        transform: translateY(-5px);
+        background-color: rgb(181, 223, 190);
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    }
+
+    .same-based-consultant-grid button {
+        width: 120px;
+        font-size: 14px;
+        padding: 1px;
+        border-radius: 6px;
+        margin-top: 20px;
+        padding: 7px;
+    }
+}

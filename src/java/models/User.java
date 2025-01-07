@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.sql.SQLException;
 
 public class User extends Model<User> implements UserManagement {
@@ -14,13 +15,14 @@ public class User extends Model<User> implements UserManagement {
     private String handphone;
     private String role;
     private double balance;
+    private String profile_path;
 
     public User() {
         this.table = "user";
         this.primaryKey = "id";
     }
     
-    public User(int id, String name, String username, String password, String role, String hp, double balance) {
+    public User(int id, String name, String username, String password, String role, String hp, double balance, String profile_path) {
         this.table = "user";
         this.primaryKey = "id";
         this.id = id;
@@ -30,6 +32,8 @@ public class User extends Model<User> implements UserManagement {
         this.role = role;
         this.handphone = hp;
         this.balance = balance;
+        this.profile_path = profile_path;
+
     }
 
     @Override
@@ -42,7 +46,8 @@ public class User extends Model<User> implements UserManagement {
                 rs.getString("password"),
                 rs.getString("role"),
                 rs.getString("handphone"),
-                rs.getDouble("balance")
+                rs.getDouble("balance"),
+                rs.getString("profile_path")
             );
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
@@ -77,6 +82,10 @@ public class User extends Model<User> implements UserManagement {
     public String getHandphone() {
         return handphone;
     }
+    
+    public String getProfile_path() {
+        return profile_path;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -92,7 +101,9 @@ public class User extends Model<User> implements UserManagement {
         this.username = username;
         this.password = password;
         this.role = "user";
+        this.handphone = "- ";
         this.balance = 0;
+        this.profile_path = " - ";
     }
     
     @Override
@@ -103,33 +114,12 @@ public class User extends Model<User> implements UserManagement {
     
     
     @Override
-    public void updateProfile(int id, String name, String hp) {
+    public void updateProfile(int id,String username, String name, String hp, String profile_path) {
         this.id = id;
+        this.username = username;
         this.name = name;
         this.handphone = hp;
-    }
-    
-    public boolean isValidUser() {
-        boolean result = false;
-        String query = "SELECT COUNT(*) FROM " + table + " WHERE username = ? AND password = ?";
-        
-        
-        try (Connection con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/legalhelpwithjava","root","");
-             PreparedStatement ps = con.prepareStatement(query)) {
-            
-            ps.setString(1, username);
-            ps.setString(2, password);
-            
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    int count = rs.getInt(1);
-                    result = (count > 0);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return result;
+        this.profile_path = profile_path;
     }
     
     public String roleCheck() {
@@ -152,5 +142,41 @@ public class User extends Model<User> implements UserManagement {
             e.printStackTrace();
         }
         return result;
+    }
+    
+    public int userCount() {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS total FROM " + table + " WHERE role = 'user'";
+        try (Connection con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/legalhelpwithjava","root","")) {
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(query);
+            if (rs.next()) {
+                count = rs.getInt("total");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+    
+    public User find(String column, Object value) {
+    User user = null;
+    String query = "SELECT * FROM " + this.table + " WHERE " + column + " = ? LIMIT 1";
+    
+    try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/legalhelpwithjava", "root", "");
+         PreparedStatement stmt = con.prepareStatement(query)) {
+         
+        stmt.setObject(1, value); // Menggunakan parameterized query untuk mencegah SQL Injection
+        ResultSet rs = stmt.executeQuery();
+        
+        if (rs.next()) {
+            user = this.toModel(rs); // Gunakan metode `toModel` untuk memetakan hasil query
+        }
+        
+    } catch (SQLException e) {
+        System.out.println("Error during find operation: " + e.getMessage());
+    }
+    
+    return user;
     }
 }

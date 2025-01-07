@@ -11,5 +11,5 @@ package models;
 public interface UserManagement {
     public void register(String name, String username, String password);
     public void login(String username, String password);
-    public void updateProfile(int id, String name, String hp);
+    public void updateProfile(int id,String username, String name, String hp, String profile_path);
 }

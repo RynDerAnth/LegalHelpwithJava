@@ -1,0 +1,288 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30 Dec 2024, 23.04.52
+    Author     : ASUS
+*/\\
+
+.keywords li {
+    margin-left: -2rem;
+    list-style: none;
+}
+
+.content-forum {
+    padding: 35px 2%;
+    width: 80%;
+    min-height: 90vh;
+    margin: auto;
+    background-color: #ffffff;
+}
+.content-forum h2 {
+    text-align: center;
+}
+
+#statusSection {
+    border: none;
+    outline: none;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+.keywords {
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+.post-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+.post-card .profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+.post-card .username {
+    font-weight: bold;
+}
+.post-card .time-posted {
+    color: #999;
+    font-size: 0.8em;
+}
+.post-card .post-content {
+    margin-top: 10px;
+    color: #333;
+}
+.post-card .likes-comments {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: 5px;
+}
+.post-card .post-actions {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+.post-actions i {
+    margin-right: 5px;
+}
+.add-post-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #28a745;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.typesection {
+    float: right;
+}
+
+.people-post img .interact {
+    padding: 0 10px;
+}
+/*
+.form {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f7f9fc;
+    border: 1px solid #d1d9e6;
+    border-radius: 15px;
+}
+
+.form img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form textarea {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #d1d9e6;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    resize: none;
+    min-height: 50px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.form textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+}*/
+
+.form {
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .form textarea {
+            flex: 1;
+            height: 100px;
+            resize: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form button {
+            align-self: flex-end;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form button:hover {
+            background-color: #0056b3;
+        }
+
+        .form .form-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .form .textarea-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form .textarea-container textarea {
+            margin-bottom: 10px;
+        }
+
+.form button {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #357abd;
+}
+
+.threads {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.thread {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+}
+
+.thread:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thread img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.thread-content {
+    flex: 1;
+}
+
+.thread-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 5px;
+}
+
+.thread-text {
+    font-size: 14px;
+    color: #666;
+}
+
+.thread-time {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+@media (min-width: 400px) and (max-width: 599px) {
+    .content-forum {
+        width: 100%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 600px) and (max-width: 799px) {
+    .content-forum {
+        width: 90%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 800px) and (max-width: 1279px) {
+    .content-forum {
+        width: 85%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .content-forum {
+        width: 80%;
+    }
+}
+
