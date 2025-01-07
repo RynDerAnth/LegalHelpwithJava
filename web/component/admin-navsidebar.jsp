@@ -1,5 +1,16 @@
+<%-- 
+    Document   : user-app
+    Created on : 30 Dec 2024, 22.03.52
+    Author     : ASUS
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="models.User"%>
+<%
+    HttpSession userSession = request.getSession();
+    User user = new User();
+    user = user.find("username", (String)session.getAttribute("user"));
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +27,7 @@
     <!-- Navbar -->
     <div class="navbar flex justify-start items-center bg-[#1b5c60] text-white p-2">
         <div class="menu-icon text-2xl cursor-pointer" onclick="toggleMenu()">&#9776;</div>
-        <img src="../img/legalhelp.png" alt="LegalHelp" style="height:50px">
+        <img src="img/legalhelp.png" alt="LegalHelp" style="height:50px">
     </div>
 
     <!-- Overlay -->
@@ -28,17 +39,16 @@
         <div class="profile-section flex flex-col items-center text-center border-b border-gray-700 pb-4 mb-4">
             <img src="https://via.placeholder.com/80" alt="Profile Picture"
                 class="w-20 h-20 rounded-full border-2 border-gray-700 mb-2">
-            <h2 class="text-lg font-bold">Admin</h2>
-            <p class="text-sm text-gray-400">Idle</p>
-            <p class="text-sm font-bold text-green-500">$ -</p>
+            <h2 class="text-lg font-bold"><%= user.getUsername() %></h2>
         </div>
         <nav class="mt-4">
-            <a href="dashboard.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Users Dashboard</a>
-            <a href="consultantlist.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Consultant</a>
-            <a href="feeds.jsp"
-                class="block py-2 px-4 hover:bg-gray-700 rounded">Feeds</a>
-            <a href="../index.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Logout</a>
-
+            <a href="<%= request.getContextPath() %>/admin?menu=view" class="block py-2 px-4 hover:bg-gray-700 rounded">Users Dashboard</a>
+            <a href="<%= request.getContextPath() %>/admin?menu=cView" class="block py-2 px-4 hover:bg-gray-700 rounded">Consultant</a>
+            <a href="<%= request.getContextPath() %>/admin?menu=pView" class="block py-2 px-4 hover:bg-gray-700 rounded">Feeds</a>
+            <a href="<%= request.getContextPath() %>/admin?menu=aView" class="block py-2 px-4 hover:bg-gray-700 rounded">Article</a>
+            <a href="<%= request.getContextPath() %>/admin?menu=tView" class="block py-2 px-4 hover:bg-gray-700 rounded">Transaction History</a>
+            <a href="<%= request.getContextPath() %>/AuthController?action=logout" class="block py-2 px-4 hover:bg-gray-700 rounded">Logout</a>
+            
         </nav>
     </div>
 

@@ -1,4 +1,7 @@
-
+        /*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package controllers;
 
 import java.io.IOException;
@@ -22,9 +25,9 @@ import models.User;
 
 @WebServlet(name = "AdminController", urlPatterns = {"/admin"})
 @MultipartConfig(
-    fileSizeThreshold = 1024 * 1024 * 2, 
-    maxFileSize = 1024 * 1024 * 10,      
-    maxRequestSize = 1024 * 1024 * 50    
+    fileSizeThreshold = 1024 * 1024 * 2, // 2MB
+    maxFileSize = 1024 * 1024 * 10,      // 10MB
+    maxRequestSize = 1024 * 1024 * 50    // 50MB
 )
 public class AdminController extends HttpServlet {
 

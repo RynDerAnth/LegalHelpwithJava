@@ -114,7 +114,7 @@ public class User extends Model<User> implements UserManagement {
     
     
     @Override
-    public void updateProfile(int id,String username, String name, String hp, String profile_path) {
+    public void updateProfile(int id, String username, String name, String hp, String profile_path) {
         this.id = id;
         this.username = username;
         this.name = name;

@@ -1,5 +1,18 @@
+<%-- 
+    Document   : user-app
+    Created on : 30 Dec 2024, 22.03.52
+    Author     : ASUS
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.text.NumberFormat"%>
+<%@page import="java.util.Locale"%>
+<%@page import="models.User"%>
+<%
+    HttpSession userSession = request.getSession();
+    User user = new User();
+    user = user.find("username", (String)session.getAttribute("user"));
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,20 +39,22 @@
     <div id="sideMenu"
         class="fixed top-0 left-[-100%] w-64 h-full bg-[#1b5c60] text-white transition-all duration-300 transform z-20 p-4">
         <div class="profile-section flex flex-col items-center text-center border-b border-gray-700 pb-4 mb-4">
-            <img src="https://via.placeholder.com/80" alt="Profile Picture"
+            <img src="uploads/<%= user.getProfile_path() == null ? "https://via.placeholder.com/200" : user.getProfile_path() %>" alt="Profile Picture"
                 class="w-20 h-20 rounded-full border-2 border-gray-700 mb-2">
-            <h2 class="text-lg font-bold">Admin</h2>
-            <p class="text-sm text-gray-400">Idle</p>
-            <p class="text-sm font-bold text-green-500">$ -</p>
+            <h2 class="text-lg font-bold"><%= user.getUsername() %></h2>
+            <p class="text-sm font-bold text-green-500">
+                Rp <%= NumberFormat.getInstance(Locale.getDefault()).format(user.getBalance()) %>
+            </p>
         </div>
         <nav class="mt-4">
-            <a href="home.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Feed</a>
-            <a href="consult.jsp"
+            <a href="<%= request.getContextPath() %>/user?menu=home" class="block py-2 px-4 hover:bg-gray-700 rounded">Feed</a>
+            <a href="<%= request.getContextPath() %>/user?menu=article" class="block py-2 px-4 hover:bg-gray-700 rounded">Article</a>
+            <a href="<%= request.getContextPath() %>/consultant?menu=view"
                 class="block py-2 px-4 hover:bg-gray-700 rounded">Booking Consultant</a>
-            <a href="topup.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Top Up</a>
-            <a href="profile.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Profile</a>
-            <a href="index.jsp" class="block py-2 px-4 hover:bg-gray-700 rounded">Logout</a>
-
+            <a href="<%= request.getContextPath() %>/user?menu=addBalance" class="block py-2 px-4 hover:bg-gray-700 rounded">Top Up</a>
+            <a href="<%= request.getContextPath() %>/user?menu=edit" class="block py-2 px-4 hover:bg-gray-700 rounded">Profile</a>
+            <a href="<%= request.getContextPath() %>/transaction?menu=view" class="block py-2 px-4 hover:bg-gray-700 rounded">Transaction History</a>
+            <a href="<%= request.getContextPath() %>/AuthController?action=logout" class="block py-2 px-4 hover:bg-gray-700 rounded">Logout</a>
         </nav>
     </div>
 

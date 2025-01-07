@@ -23,13 +23,10 @@
         protected String primaryKey;
         protected String select = "*";
         private String where = "";
-        private String join = "";
-        private String otherQuery = "";
 
         public void connect() {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                // (#1.1) Sesuaikan formatting con dengan nama DB anda
                 con = DriverManager.getConnection( "jdbc:mysql://localhost:3306/legalhelpwithjava","root",""); 
                 stmt = con.createStatement();
                 isConnected = true;
@@ -128,22 +125,6 @@
             return res;
         }
 
-        public ArrayList<ArrayList<Object>> query(String query) {
-            ArrayList<ArrayList<Object>> res = new ArrayList<>();
-            try {
-                connect();
-                ResultSet rs = stmt.executeQuery(query);
-                while (rs.next()) {
-                    res.add(toRow(rs));
-                }
-            } catch (SQLException e) {
-                message = e.getMessage();
-            } finally {
-                disconnect();
-            }
-            return res;
-        }
-
         abstract E toModel(ResultSet rs);
 
         public ArrayList<E> get() {
@@ -151,9 +132,7 @@
             try {
                 this.connect();
                 String query = "SELECT " +  select + " FROM " + table;
-                if (!join.equals("")) query += join;
                 if (!where.equals("")) query += " WHERE " + where;
-                if (!otherQuery.equals("")) query += " " + otherQuery;
                 ResultSet rs = stmt.executeQuery(query);
                 while (rs.next()) {
                     res.add(toModel(rs));
@@ -164,8 +143,6 @@
                 disconnect();
                 select = "*";
                 where = "";
-                join = "";
-                otherQuery = "";
             }
             return res;
         }
@@ -191,16 +168,8 @@
             select = cols;
         }
 
-        public void join(String table, String on) {
-            join += " JOIN " + table + " ON " + on;
-        }
-
         public void where(String cond) {
             where = cond;
-        }
-
-        public void addQuery(String query) {
-            otherQuery = query;
         }
 
         public boolean isConnected() {

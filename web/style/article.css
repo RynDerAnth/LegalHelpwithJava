@@ -1,0 +1,138 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 6 Jan 2025, 17.16.18
+    Author     : ASUS
+*/
+
+.content-legalpedia {
+    padding: 35px 2%;
+    width: 80%;
+    margin: auto ;
+    min-height:92vh;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.article {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    gap: 15px;
+}
+
+.article img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    margin: 10px;
+    padding: 5px;
+}
+
+.article-contents {
+    padding: 15px;
+    flex: 1;
+}
+
+.article-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0 0 10px;
+    text-decoration: none;
+}
+
+.article-date {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.article p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.article img {
+    width: 250px;
+    height: 175px;
+    object-fit: cover;
+}
+
+.article:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 400px) and (max-width: 599px) {
+    .content-legalpedia {
+        width: 100%;
+    }
+    .layouting-grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 60% auto;
+        column-gap: 5%;
+        padding: 0 20px;
+    }
+    .news-content .caption {
+        margin-top: -55px;
+    }
+    .article img {
+        width: 150px;
+        height: 105px;
+    }
+    .article-contents .article-title {
+        font-size: 20px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 600px) and (max-width: 799px) {
+    .content-legalpedia {
+        width: 90%;
+    }
+    .layouting-grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 65% auto;
+        column-gap: 5%;
+        padding: 0 20px;
+    }
+    .news-content .caption {
+        margin-top: -45px;
+    }
+    .article img {
+        width: 170px;
+        height: 119px;
+    }
+    .article-contents .article-title {
+        font-size: 25px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 800px) and (max-width: 1279px) {
+    .content-legalpedia {
+        width: 85%;
+    }
+    .news-content .caption {
+        margin-top: -27px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .content-legalpedia {
+        width: 80%;
+    }
+}
