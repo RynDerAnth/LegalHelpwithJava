@@ -79,5 +79,16 @@ public class Transaction extends Model<Transaction> {
     public void setSum(double sum) {
         this.sum = sum;
     }
-
+    
+    public String getConsultantName() {
+        Konsultan consultant = new Konsultan();
+        consultant = consultant.find("id", this.receiverId);
+        return consultant != null ? consultant.getName() : "Unknown Consultant";
+    }
+    
+    public String getUserName() {
+        User user = new User();
+        user = user.find("id", this.senderId);
+        return user != null ? user.getName() : "Unknown Username";
+    }
 }
