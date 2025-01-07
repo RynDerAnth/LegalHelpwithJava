@@ -34,7 +34,7 @@ public class PostController extends HttpServlet {
         String menu = request.getParameter("menu");
         
         if (menu == null || menu.isEmpty()) {
-            response.sendRedirect("post?menu=view");
+            response.sendRedirect("user?menu=home");
             return;
         }
 
@@ -43,20 +43,7 @@ public class PostController extends HttpServlet {
         if ("view".equals(menu)) {
             ArrayList<Post> posts = postModel.get();
             request.setAttribute("posts", posts);
-            request.getRequestDispatcher("/post/view.jsp").forward(request, response);
-
-        } else if ("add".equals(menu)) {
-            request.getRequestDispatcher("/post/add.jsp").forward(request, response);
-
-        } else if ("edit".equals(menu)) {
-            String id = request.getParameter("id");
-            Post post = postModel.find("id", id);
-            if (post != null) {
-                request.setAttribute("post", post);
-                request.getRequestDispatcher("/post/edit.jsp").forward(request, response);
-            } else {
-                response.sendRedirect("post?menu=view");
-            }
+            request.getRequestDispatcher("/home.jsp").forward(request, response);
 
         } else {
             response.sendRedirect("post?menu=view");
@@ -77,23 +64,14 @@ public class PostController extends HttpServlet {
 
         if ("add".equals(action)) {
             String content = request.getParameter("content");
-            session = request.getSession();
-            User userModel = new User();
-            User user = userModel.find("username", (String)session.getAttribute("user"));
+            int id = Integer.parseInt(request.getParameter("uId"));
+            String userName = request.getParameter("un");
+
 
             postModel.setContent(content);
-            postModel.setUserId(user.getId());
+            postModel.setUserId(id);
+            postModel.setUserName(userName);
             postModel.insert();
-
-        } else if ("edit".equals(action)) {
-            int id = Integer.parseInt(request.getParameter("id"));
-            String content = request.getParameter("content");
-            int userId = Integer.parseInt(request.getParameter("userId"));
-
-            postModel.setId(id);
-            postModel.setContent(content);
-            postModel.setUserId(userId);
-            postModel.update();
 
         } else if (action.equals("delete")) {
             int id = Integer.parseInt(request.getParameter("id"));
@@ -101,6 +79,6 @@ public class PostController extends HttpServlet {
             postModel.delete();
         }
 
-        response.sendRedirect("post?menu=view");
+        response.sendRedirect("user?menu=home");
     }
 }
