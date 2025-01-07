@@ -44,7 +44,7 @@ public class TransactionController extends HttpServlet {
             ArrayList<Transaction> transactions = transactionModel.get();
             
             request.setAttribute("transactions", transactions);
-            request.getRequestDispatcher("/transaction/view.jsp").forward(request, response);
+            request.getRequestDispatcher("/transaction.jsp").forward(request, response);
 
         } else {
             response.sendRedirect("transaction?menu=view");
@@ -82,11 +82,15 @@ public class TransactionController extends HttpServlet {
                 transactionModel.setReceiverId(rId);
                 transactionModel.setSum(sum);
                 transactionModel.insert();
+                response.sendRedirect(request.getContextPath() + "/consultant?menu=view");
+                return;
+                
             } else {
-                response.sendRedirect(request.getContextPath() + "/consultant/detail.jsp?error=1");
+                response.sendRedirect(request.getContextPath() + "/consultant?menu=detail&&error=1&id=" + rId);
+                return;
             }
         }
 
-        response.sendRedirect("consultant?menu=view");
+        response.sendRedirect(request.getContextPath() + "/consultant?menu=view");
     }
 }
