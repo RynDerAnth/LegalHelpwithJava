@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
+
 package controllers;
 
 import java.io.IOException;
@@ -125,7 +122,7 @@ public class UserController extends HttpServlet {
             transactionModel.setReceiverId(1);
             transactionModel.setSum(Double.parseDouble(request.getParameter("amount")));
             transactionModel.insert();
-            next = "user?menu=topup";
+            next = "user?menu=addBalance";
 
         } else if ("edit".equals(action)) {
             User user = userModel.find("username", (String) session.getAttribute("user"));

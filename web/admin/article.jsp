@@ -40,7 +40,7 @@
                             </div>
 
                                 <form action="admin" method="POST" >
-                                    <input type="hidden" name="action" value="editA">
+                                    <input type="hidden" name="action" value="deleteA">
                                     <input type="hidden" name="id" value="<%= article.getId()%>">
                                     <div class="action">
                                     <a href="admin?menu=editA&id=<%= article.getId()%>">Edit</a>
